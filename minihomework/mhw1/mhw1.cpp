@@ -6,5 +6,12 @@ using namespace Eigen;
 
 int main()
 {
-   // YOUR CODE HERE!
+   Eigen::Matrix3f A;
+   Eigen::Vector3f b;
+   A << 1.2,3.4,5.6,  7.8,9.0,1.2,  3.4,5.6,7.8;
+   b << 36.4, 87.6, 62.8;
+   std::cout << "Here is the matrix A:\n" << A << std::endl;
+   std::cout << "Here is the vector b:\n" << b << std::endl;
+   Eigen::Vector3f x = A.colPivHouseholderQr().solve(b);
+   std::cout << "The solution is:\n" << x << std::endl;
 }
